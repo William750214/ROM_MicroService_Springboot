@@ -1,0 +1,32 @@
+server:
+  port: 9090
+  context-path: /
+  session:
+    timeout: 300
+  tomcat:
+    uri-encoding: UTF-8
+  compression:
+    enabled: true
+  ssl:
+    key-store: tomcat.keystore
+    key-store-password: 123456
+    key-store-type: PKCS12
+    key-alias: tomcat
+
+logging:
+  config: classpath:config/logback.xml
+
+spring:
+  mvc:
+    static-path-pattern: /**
+    favicon:
+      enabled: true
+  resources:
+    static-locations: classpath:/META-INF/resources,classpath:/static,classpath:/webapp/
+  thymeleaf:
+    cache: false
+  freemarker:
+    cache: false
+
+
+

@@ -1,0 +1,14 @@
+server:
+  port: 9090
+  context-path: /springboot
+
+heynas:
+  author:
+    name: zhangsan
+    age: 28
+    desc: ${heynas.author.name:Lisi} is ${heynas.author.age}
+
+logging:
+  config: classpath:config/logback.xml
+
+

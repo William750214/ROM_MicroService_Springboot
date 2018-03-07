@@ -1,0 +1,66 @@
+server:
+  port: 9090
+  context-path: /
+  session:
+    timeout: 300
+  tomcat:
+    uri-encoding: UTF-8
+  compression:
+    enabled: true
+
+logging:
+  config: classpath:config/logback.xml
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.0.1.110:13306/springboot?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root123
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 10
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 60000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat,wall,log4j
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      use-global-data-source-stat: true
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
+  redis:
+    host: 10.0.1.110
+    port: 16379
+    database: 8
+  data:
+    mongodb:
+      host: 10.0.1.110
+      port: 17017
+      database: test
+  cache:
+    type: redis
+  thymeleaf:
+    cache: false
+security:
+  enable-csrf: true
+  oauth2:
+    resource:
+      filter-order: 5
+
+#jwt.header: Authorization
+#jwt.secret: _secret
+#jwt.expiration: 300
+#jwt.tokenHead: Bearer
+

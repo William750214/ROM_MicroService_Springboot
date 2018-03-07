@@ -1,0 +1,13 @@
+server:
+  port: 9090
+  context-path: /
+
+heynas:
+  author:
+    name: lisi
+    age: 28
+
+logging:
+  config: classpath:config/logback.xml
+
+
